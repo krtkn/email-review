@@ -1084,12 +1084,9 @@ export const emailService = {
   // Hybrid approach: Use API for content, mock data for email structure
   async getHybridEmails(): Promise<Email[]> {
     try {
-      console.log('🔄 Loading hybrid emails (API content + mock structure)...');
-      
       // Fetch content from API
       const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=25');
       const posts = await response.json();
-      console.log('📨 API content received:', posts.length, 'posts');
       
       // Use mock data structure but replace content with API data
       const hybridEmails: Email[] = mockEmails.map((mockEmail, index) => {
@@ -1116,13 +1113,8 @@ export const emailService = {
         };
       });
       
-      console.log('✅ Hybrid emails created:', hybridEmails.length, 'emails');
-      console.log('📊 Sample hybrid email:', hybridEmails[0]);
-      
       return hybridEmails;
-    } catch (error) {
-      console.error('❌ Error creating hybrid emails:', error);
-      console.log('🔄 Falling back to mock data...');
+    } catch {
       return mockEmails;
     }
   },
@@ -1130,15 +1122,10 @@ export const emailService = {
   // Fetch emails from public API (alternative to mock data)
   async getEmailsFromAPI(): Promise<Email[]> {
     try {
-      console.log('🌐 Fetching emails from JSONPlaceholder API...');
-      
       // Fetch posts from JSONPlaceholder
       const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=25');
-      console.log('📡 API Response status:', response.status);
       
       const posts = await response.json();
-      console.log('📨 Raw API data received:', posts);
-      console.log('📊 Number of posts received:', posts.length);
       
       // Convert posts to email format
       const emails: Email[] = posts.map((post: { id: number; userId: number; title: string; body: string }, index: number) => ({
@@ -1166,13 +1153,8 @@ export const emailService = {
         }
       }));
       
-      console.log('✉️ Converted emails:', emails);
-      console.log('✅ Successfully loaded', emails.length, 'emails from API');
-      
       return emails;
-    } catch (error) {
-      console.error('❌ Error fetching emails from API:', error);
-      console.log('🔄 Falling back to mock data...');
+    } catch {
       // Fallback to mock data if API fails
       return mockEmails;
     }
@@ -1205,8 +1187,8 @@ export const emailService = {
   // Submit review action
   async submitReviewAction(action: EmailReviewAction): Promise<void> {
     await new Promise(resolve => setTimeout(resolve, 300));
-    console.log('Review action submitted:', action);
     // In a real app, this would send the action to the backend
+    void action;
   },
 
   // Get emails by priority

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Email } from '../types/email';
 import { emailService } from '../services/emailService';
 import { FiSearch, FiFlag, FiPaperclip, FiStar, FiUsers, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
@@ -143,8 +143,8 @@ const EmailList: React.FC<EmailListProps> = ({ selectedEmailId, onEmailSelect, o
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-full">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+      <div className="flex items-center justify-center h-full" role="status">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600" />
       </div>
     );
   }
@@ -321,6 +321,7 @@ const EmailList: React.FC<EmailListProps> = ({ selectedEmailId, onEmailSelect, o
                   onClick={goToPreviousPage}
                   disabled={currentPage === 1}
                   className="p-1 text-gray-400 hover:text-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-label="Previous"
                 >
                   <FiChevronLeft className="w-4 h-4" />
                 </button>
@@ -358,6 +359,7 @@ const EmailList: React.FC<EmailListProps> = ({ selectedEmailId, onEmailSelect, o
                   onClick={goToNextPage}
                   disabled={currentPage === totalPages}
                   className="p-1 text-gray-400 hover:text-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-label="Next"
                 >
                   <FiChevronRight className="w-4 h-4" />
                 </button>

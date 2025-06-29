@@ -17,6 +17,7 @@ A modern React-based email review application with a clean, responsive interface
 - **Frontend**: React 19 + TypeScript + Vite
 - **Styling**: Tailwind CSS
 - **Icons**: React Icons (Feather Icons)
+- **Testing**: Vitest + React Testing Library
 - **Deployment**: GitHub Pages with GitHub Actions
 
 ## Getting Started
@@ -45,6 +46,71 @@ npm run dev
 ```
 
 4. Open your browser and navigate to `http://localhost:5173`
+
+## Testing
+
+This project uses **Vitest** and **React Testing Library** for comprehensive testing.
+
+### Running Tests
+
+```bash
+# Run tests in watch mode
+npm test
+
+# Run tests once
+npm run test:run
+
+# Run tests with UI
+npm run test:ui
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+### Test Structure
+
+```
+src/
+├── components/
+│   └── __tests__/
+│       ├── EmailList.test.tsx
+│       └── EmailReadingPane.test.tsx
+├── services/
+│   └── __tests__/
+│       └── emailService.test.ts
+└── test/
+    ├── setup.ts
+    └── test-utils.tsx
+```
+
+### Testing Philosophy
+
+- **User-centric testing**: Focus on how users interact with the app
+- **Accessibility-first**: Ensure components work with screen readers and keyboard navigation
+- **Integration over unit**: Test component interactions rather than isolated functions
+- **Realistic scenarios**: Test actual user workflows
+
+### Test Utilities
+
+The project includes custom test utilities in `src/test/test-utils.tsx`:
+
+- **Custom render function**: Wraps components with necessary providers
+- **Mock data factories**: Create consistent test data for emails
+- **Re-exports**: All RTL utilities for easy importing
+
+## Building for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+## Deployment
+
+The app is automatically deployed to GitHub Pages when changes are pushed to the main branch.
+
+**Live Demo**: https://krtkn.github.io/email-review/
 
 ## Development
 
@@ -86,33 +152,14 @@ The app uses a hybrid approach for email data:
 - **Posts API**: `https://jsonplaceholder.typicode.com/posts`
 - **Comments API**: `https://jsonplaceholder.typicode.com/comments`
 
-## Deployment
-
-This project is automatically deployed to GitHub Pages using GitHub Actions.
-
-### Deployment Process
-
-1. Push changes to the `main` branch
-2. GitHub Actions automatically builds and deploys
-3. Site is available at: `https://krtkn.github.io/email-review/`
-
-### Manual Deployment
-
-If you need to deploy manually:
-
-1. Build the project:
-```bash
-npm run build
-```
-
-2. The built files will be in the `dist/` directory
-
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Submit a pull request
+4. Add tests for new functionality
+5. Run the test suite
+6. Submit a pull request
 
 ## License
 
