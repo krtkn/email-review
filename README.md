@@ -1,165 +1,153 @@
 # Email Review Dashboard
 
-A modern React application built with Vite, TypeScript, and Tailwind CSS that provides a comprehensive email review interface for managing and approving emails.
+A modern React-based email review application with a responsive design, real-time API integration, and intuitive user interface for managing and reviewing emails.
 
-## Features
+## 🚀 Features
 
-### Email Review Dashboard
-- **Email List View**: Sidebar with email headers showing sender, subject, date, priority, and status
-- **Reading Pane**: Full email content display with attachments
-- **Review Actions**: Approve, reject, flag, forward, and archive emails
-- **Search & Filtering**: Search emails by content and filter by priority
-- **Pagination**: Efficient handling of large email lists
-- **Responsive Design**: Works on desktop and mobile devices
+- **📧 Email Management**: View, search, and filter emails with pagination
+- **📖 Reading Pane**: Full-featured email reading interface with attachments
+- **🔍 Search & Filter**: Advanced search and priority-based filtering
+- **📱 Responsive Design**: Works seamlessly on desktop and mobile devices
+- **🔄 API Integration**: Hybrid approach combining mock data structure with real API content
+- **⚡ Real-time Updates**: Live email status updates and flagging
+- **🎨 Modern UI**: Clean, professional interface built with Tailwind CSS
 
-### Email Management
-- Priority-based email categorization (High, Normal, Low)
-- Email flagging and marking as read
-- Attachment handling with file size display
-- Comment system for rejections and flags
-- Real-time email status updates
-- Full-screen modal and new window viewing options
+## 🛠️ Tech Stack
 
-### Technical Stack
-- **Frontend**: React 19 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS with custom components
-- **Icons**: React Icons (Feather icons)
-- **Routing**: React Router DOM
-- **Animations**: Framer Motion
+- **React 19** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **React Icons** for iconography
+- **JSONPlaceholder API** for dynamic content
 
-## Getting Started
+## 📦 Installation
 
-### Prerequisites
-- Node.js (version 16 or higher)
-- npm or yarn
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/krtkn/email-review.git
+   cd email-review
+   ```
 
-### Installation
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd email-review
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 🚀 Deployment
+
+### GitHub Pages (Free)
+
+This project is configured for automatic deployment to GitHub Pages. Here's how to set it up:
+
+1. **Enable GitHub Pages**:
+   - Go to your repository on GitHub
+   - Navigate to Settings → Pages
+   - Under "Source", select "GitHub Actions"
+   - Save the settings
+
+2. **Push your changes**:
+   ```bash
+   git add .
+   git commit -m "Configure for GitHub Pages deployment"
+   git push origin main
+   ```
+
+3. **Monitor deployment**:
+   - Go to Actions tab in your repository
+   - Watch the "Deploy to GitHub Pages" workflow
+   - Your app will be available at: `https://krtkn.github.io/email-review/`
+
+### Alternative Deployment Options
+
+- **Vercel**: Connect your GitHub repository for automatic deployments
+- **Netlify**: Drag and drop the `dist` folder or connect your repository
+- **Firebase Hosting**: Use Firebase CLI for deployment
+
+## 🎯 Usage
+
+### Email Review Workflow
+
+1. **Browse Emails**: View the email list with pagination (10 emails per page)
+2. **Search & Filter**: Use the search bar and priority filters to find specific emails
+3. **Read Emails**: Click on any email to view its full content in the reading pane
+4. **Take Actions**: Approve, reject, or flag emails using the action buttons
+5. **Manage Attachments**: Download or view email attachments
+
+### Features Overview
+
+- **Auto-selection**: First email is automatically selected on page load
+- **Resizable Layout**: Drag the resize handle to adjust the email list width
+- **Real-time Updates**: Email status updates immediately
+- **Responsive Design**: Optimized for all screen sizes
+
+## 🔧 Configuration
+
+### API Integration
+
+The app uses a hybrid approach for data:
+
+- **Mock Data**: Professional email addresses, subjects, and metadata
+- **API Content**: Dynamic email body content from JSONPlaceholder API
+- **Fallback**: Graceful fallback to mock data if API is unavailable
+
+### Customization
+
+- **Styling**: Modify `src/styles/theme.ts` for custom colors and styling
+- **API Endpoints**: Update `src/services/emailService.ts` for different data sources
+- **Components**: Extend components in `src/components/` for additional features
+
+## 📁 Project Structure
+
+```
+email-review/
+├── src/
+│   ├── components/          # React components
+│   │   ├── EmailList.tsx    # Email list with pagination
+│   │   ├── EmailReadingPane.tsx # Email reading interface
+│   │   ├── RecipientModal.tsx   # Recipient management
+│   │   └── RecipientList.tsx    # Recipient display
+│   ├── pages/               # Page components
+│   │   └── EmailReview.tsx  # Main dashboard page
+│   ├── services/            # API and data services
+│   │   └── emailService.ts  # Email data management
+│   ├── types/               # TypeScript type definitions
+│   │   └── email.ts         # Email-related types
+│   └── styles/              # Styling and themes
+│       └── theme.ts         # Design system configuration
+├── .github/workflows/       # GitHub Actions for deployment
+│   └── deploy.yml           # Deployment workflow
+└── public/                  # Static assets
 ```
 
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-4. Open your browser and navigate to `http://localhost:5173`
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── EmailList.tsx          # Email list sidebar with pagination
-│   ├── EmailReadingPane.tsx   # Email content reading pane
-│   ├── RecipientList.tsx      # Recipient display component
-│   └── RecipientModal.tsx     # Modal for viewing all recipients
-├── pages/
-│   └── EmailReview.tsx        # Main email review dashboard
-├── services/
-│   └── emailService.ts        # Mock email API service
-├── types/
-│   └── email.ts               # TypeScript type definitions
-├── App.tsx                    # Main application component
-└── main.tsx                   # Application entry point
-```
-
-## Email Review Interface
-
-### Features
-- **Email List**: Displays email headers with priority indicators, flags, and attachment icons
-- **Search**: Real-time search through email subjects, senders, and content
-- **Filtering**: Filter by priority level and read/unread status
-- **Pagination**: Navigate through large email lists efficiently
-- **Reading Pane**: Full email content with proper formatting and attachment handling
-- **Review Actions**: Quick action buttons for email approval workflow
-- **Comments**: Add comments when rejecting or flagging emails
-- **Full Screen View**: View emails in full-screen modal or new window
-- **Recipient Management**: View all recipients in organized modals
-
-### Mock Data
-The application includes realistic mock email data for demonstration:
-- Marketing campaign reviews
-- Contract approvals
-- Budget requests
-- Team updates
-- IT infrastructure proposals
-- Comprehensive policy updates (with long content for testing)
-
-## Backend Integration
-
-The application is designed to work with REST APIs. The `emailService.ts` file contains mock implementations that can be easily replaced with real API calls:
-
-```typescript
-// Example API integration
-const emailService = {
-  async getEmails(): Promise<Email[]> {
-    const response = await fetch('/api/emails');
-    return response.json();
-  },
-  
-  async submitReviewAction(action: EmailReviewAction): Promise<void> {
-    await fetch('/api/emails/review', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(action)
-    });
-  }
-};
-```
-
-## Customization
-
-### Styling
-The application uses Tailwind CSS with custom color schemes and components. You can customize the design by modifying:
-- `tailwind.config.js` - Tailwind configuration
-- `src/index.css` - Custom CSS components and utilities
-- Component-specific Tailwind classes
-
-### Email Types
-Email data structures are defined in `src/types/email.ts`. You can extend these types to match your backend API:
-
-```typescript
-export interface Email {
-  id: string;
-  from: string;
-  to: string[];
-  cc?: string[];
-  bcc?: string[];
-  subject: string;
-  date: string;
-  isRead: boolean;
-  isFlagged: boolean;
-  hasAttachments: boolean;
-  priority: 'low' | 'normal' | 'high';
-  content: EmailContent;
-}
-```
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🆘 Support
+
+If you encounter any issues or have questions:
+
+1. Check the [Issues](https://github.com/krtkn/email-review/issues) page
+2. Create a new issue with detailed information
+3. Include steps to reproduce the problem
+
+---
+
+**Built with ❤️ using React and modern web technologies**
