@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Email } from '../types/email';
 import { emailService } from '../services/emailService';
 import { FiSearch, FiFlag, FiPaperclip, FiStar, FiUsers, FiChevronLeft, FiChevronRight } from 'react-icons/fi';

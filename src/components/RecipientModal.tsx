@@ -1,4 +1,3 @@
-import React from 'react';
 import { FiX, FiUser, FiUsers } from 'react-icons/fi';
 
 interface RecipientModalProps {

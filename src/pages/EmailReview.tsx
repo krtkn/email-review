@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Email, EmailReviewAction } from '../types/email';
 import { emailService } from '../services/emailService';
 import EmailList from '../components/EmailList';
@@ -32,7 +32,7 @@ const EmailReview: React.FC = () => {
     };
 
     loadInitialEmails();
-  }, []); // Empty dependency array means this runs once on mount
+  }, [selectedEmail]); // Add selectedEmail as dependency
 
   const handleEmailSelect = (email: Email) => {
     setSelectedEmail(email);
